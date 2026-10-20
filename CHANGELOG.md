@@ -6,6 +6,11 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased] - 2026-10-21
 
+### Changed
+
+- Requires contenir/social from its main branch (`0.1.x-dev`), now that the library is merged, until it is tagged
+  and `^0.1` can come from Packagist.
+
 ### Added
 
 - Social Media Links (`social`): a profile for each of Facebook, Instagram, LinkedIn, X, YouTube, TikTok, Pinterest,
