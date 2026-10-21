@@ -2,7 +2,7 @@
 
 [![Continuous Integration](https://github.com/contenir-extension/social/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/contenir-extension/social/actions/workflows/continuous-integration.yml)
 
-The Social add-on for Contenir CMS: the site's profiles on ten networks, each checked as it is saved, and the share
+The Social add-on for Contenir CMS: the site's profiles on twelve networks, each checked as it is saved, and the share
 buttons on its pages, chosen and ordered by editors. It replaces the CMS's Social Media Links plugin, with the same
 settings keys, and the empty Share plugin.
 
@@ -25,6 +25,8 @@ README describes how every add-on is laid out, built, tested and released.
 | Threads | `social.social_threads` | `social:threads` |
 | Bluesky | `social.social_bluesky` | `social:bluesky` |
 | Mastodon | `social.social_mastodon` | `social:mastodon` |
+| Vimeo | `social.social_vimeo` | `social:vimeo` |
+| Behance | `social.social_behance` | `social:behance` |
 
 The first five keep the plugin's keys, and the new networks join them under `social`, so anything reading profiles
 finds them in one place: sites, and the SEO add-on for schema.org's `sameAs`. Neither add-on depends on the other.

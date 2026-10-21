@@ -7,6 +7,7 @@ namespace Contenir\Extension\Social\Tests\Unit;
 use Contenir\Extension\Api\Field\FieldTypeDeclaration;
 use Contenir\Extension\Api\Registry;
 use Contenir\Extension\Api\Settings\SettingsSection;
+use Contenir\Extension\Social\Field\BehanceField;
 use Contenir\Extension\Social\Field\BlueskyField;
 use Contenir\Extension\Social\Field\FacebookField;
 use Contenir\Extension\Social\Field\InstagramField;
@@ -15,6 +16,7 @@ use Contenir\Extension\Social\Field\MastodonField;
 use Contenir\Extension\Social\Field\PinterestField;
 use Contenir\Extension\Social\Field\ThreadsField;
 use Contenir\Extension\Social\Field\TikTokField;
+use Contenir\Extension\Social\Field\VimeoField;
 use Contenir\Extension\Social\Field\XField;
 use Contenir\Extension\Social\Field\YouTubeField;
 use Contenir\Extension\Social\SocialExtension;
@@ -51,6 +53,8 @@ final class SocialExtensionTest extends TestCase
                 ['social:threads',   ThreadsField::class],
                 ['social:bluesky',   BlueskyField::class],
                 ['social:mastodon',  MastodonField::class],
+                ['social:vimeo',     VimeoField::class],
+                ['social:behance',   BehanceField::class],
             ],
             array_map(
                 static fn(FieldTypeDeclaration $type): array => [$type->type, $type->class],

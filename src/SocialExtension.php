@@ -6,6 +6,7 @@ namespace Contenir\Extension\Social;
 
 use Contenir\Extension\Api\ExtensionInterface;
 use Contenir\Extension\Api\Registry;
+use Contenir\Extension\Social\Field\BehanceField;
 use Contenir\Extension\Social\Field\BlueskyField;
 use Contenir\Extension\Social\Field\FacebookField;
 use Contenir\Extension\Social\Field\InstagramField;
@@ -14,6 +15,7 @@ use Contenir\Extension\Social\Field\MastodonField;
 use Contenir\Extension\Social\Field\PinterestField;
 use Contenir\Extension\Social\Field\ThreadsField;
 use Contenir\Extension\Social\Field\TikTokField;
+use Contenir\Extension\Social\Field\VimeoField;
 use Contenir\Extension\Social\Field\XField;
 use Contenir\Extension\Social\Field\YouTubeField;
 use Override;
@@ -42,6 +44,8 @@ final class SocialExtension implements ExtensionInterface
         ThreadsField::NAME   => ThreadsField::class,
         BlueskyField::NAME   => BlueskyField::class,
         MastodonField::NAME  => MastodonField::class,
+        VimeoField::NAME     => VimeoField::class,
+        BehanceField::NAME   => BehanceField::class,
     ];
 
     #[Override]

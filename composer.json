@@ -1,6 +1,6 @@
 {
     "name": "contenir-extension/social",
-    "description": "The Social add-on for Contenir CMS: profile links for ten networks, checked as they are saved, and share buttons chosen and ordered by editors. It replaces the CMS's Social Media Links plugin, with the same settings keys.",
+    "description": "The Social add-on for Contenir CMS: profile links for twelve networks, checked as they are saved, and share buttons chosen and ordered by editors. It replaces the CMS's Social Media Links plugin, with the same settings keys.",
     "type": "contenir-extension",
     "license": "BSD-3-Clause",
     "keywords": [

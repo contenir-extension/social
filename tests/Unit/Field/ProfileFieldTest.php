@@ -7,6 +7,7 @@ namespace Contenir\Extension\Social\Tests\Unit\Field;
 use Contenir\Extension\Api\Context\ExtensionContextInterface;
 use Contenir\Extension\Api\Form\FieldType;
 use Contenir\Extension\Social\Field\AbstractProfileField;
+use Contenir\Extension\Social\Field\BehanceField;
 use Contenir\Extension\Social\Field\BlueskyField;
 use Contenir\Extension\Social\Field\FacebookField;
 use Contenir\Extension\Social\Field\InstagramField;
@@ -15,6 +16,7 @@ use Contenir\Extension\Social\Field\MastodonField;
 use Contenir\Extension\Social\Field\PinterestField;
 use Contenir\Extension\Social\Field\ThreadsField;
 use Contenir\Extension\Social\Field\TikTokField;
+use Contenir\Extension\Social\Field\VimeoField;
 use Contenir\Extension\Social\Field\XField;
 use Contenir\Extension\Social\Field\YouTubeField;
 use Contenir\Social\Network;
@@ -42,6 +44,8 @@ final class ProfileFieldTest extends TestCase
             'threads'   => [new ThreadsField(), Network::Threads, 'threads'],
             'bluesky'   => [new BlueskyField(), Network::Bluesky, 'bluesky'],
             'mastodon'  => [new MastodonField(), Network::Mastodon, 'mastodon'],
+            'vimeo'     => [new VimeoField(), Network::Vimeo, 'vimeo'],
+            'behance'   => [new BehanceField(), Network::Behance, 'behance'],
         ];
     }
 

@@ -6,6 +6,13 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased] - 2026-10-21
 
+### Added
+
+- Vimeo (`social:vimeo`, `social.social_vimeo`) and Behance (`social:behance`, `social.social_behance`) in Social
+  Media Links. Neither has a share address, so neither is a share button.
+
+## [0.1.0] - 2026-10-21
+
 ### Changed
 
 - Requires contenir/social from its main branch (`0.1.x-dev`), now that the library is merged, until it is tagged
