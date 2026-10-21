@@ -36,7 +36,7 @@ Each field type accepts the profile's address in any form the network serves it 
 it. Anything else is refused with a message saying why ("That address is on www.instagram.com, not Facebook…").
 
 Stored values are never rewritten. The plugin stored Instagram, X and Pinterest as usernames, and templates that build
-a link from a stored username (`https://instagram.com/<username>`) keep working. contenir/social builds the full
+a link from a stored username (`https://instagram.com/<username>`) keep working. contenir/contenir-social builds the full
 address from either form when a page is written: `socialProfiles()` for the links, and the X account for
 `twitter:site`. Sites move to the helper when it suits them (Simon's choice, replacing SOC-2's convert-on-save).
 
@@ -53,8 +53,8 @@ Telegram, Copy link and Share… (only where the browser has a share sheet, SOC-
 page's own metadata: no third-party scripts, counts or cookies, so nothing reaches a network until a visitor clicks.
 
 Sites print both with a site adapter. On Laminas MVC that is
-[contenir/social-laminas-mvc](https://github.com/contenir/contenir-social-laminas-mvc)'s `socialProfiles()` and
-`share()`. [contenir/social](https://github.com/contenir/contenir-social) does the work: the networks, the checks,
+[contenir/contenir-social-laminas-mvc](https://github.com/contenir/contenir-social-laminas-mvc)'s `socialProfiles()` and
+`share()`. [contenir/contenir-social](https://github.com/contenir/contenir-social) does the work: the networks, the checks,
 the share addresses, the HTML, the icons and the script.
 
 It has no checks, listeners, handlers, scripts or tables. It stores no personal data: only the site's own profile
@@ -63,7 +63,7 @@ addresses.
 ## Requirements
 
 - PHP 8.3, 8.4 or 8.5
-- A CMS that hosts contenir/extension-api 0.5
+- A CMS that hosts contenir/extension-api 0.5 or 0.6
 
 ## Installing
 

@@ -16,7 +16,7 @@ use function array_map;
 /**
  * Social Media Links, under Social, where the CMS's plugin of that name was:
  * a profile address for each network. Each is stored under the key
- * contenir/social reads (social.social_*), the plugin's own keys for the five
+ * contenir/contenir-social reads (social.social_*), the plugin's own keys for the five
  * networks it had, so sites and the SEO add-on read the same values.
  *
  * @api
