@@ -7,6 +7,7 @@ namespace Contenir\Extension\Social\Tests\Unit\Field;
 use Contenir\Extension\Api\Context\ExtensionContextInterface;
 use Contenir\Extension\Api\Form\FieldType;
 use Contenir\Extension\Social\Field\AbstractProfileField;
+use Contenir\Extension\Social\Field\BehanceField;
 use Contenir\Extension\Social\Field\BlueskyField;
 use Contenir\Extension\Social\Field\FacebookField;
 use Contenir\Extension\Social\Field\InstagramField;
@@ -15,6 +16,7 @@ use Contenir\Extension\Social\Field\MastodonField;
 use Contenir\Extension\Social\Field\PinterestField;
 use Contenir\Extension\Social\Field\ThreadsField;
 use Contenir\Extension\Social\Field\TikTokField;
+use Contenir\Extension\Social\Field\VimeoField;
 use Contenir\Extension\Social\Field\XField;
 use Contenir\Extension\Social\Field\YouTubeField;
 use Contenir\Social\Network;
@@ -42,6 +44,8 @@ final class ProfileFieldTest extends TestCase
             'threads'   => [new ThreadsField(), Network::Threads, 'threads'],
             'bluesky'   => [new BlueskyField(), Network::Bluesky, 'bluesky'],
             'mastodon'  => [new MastodonField(), Network::Mastodon, 'mastodon'],
+            'vimeo'     => [new VimeoField(), Network::Vimeo, 'vimeo'],
+            'behance'   => [new BehanceField(), Network::Behance, 'behance'],
         ];
     }
 
@@ -51,15 +55,11 @@ final class ProfileFieldTest extends TestCase
     public static function normalisedProvider(): array
     {
         return [
-            'a handle the core stored'   => [
-                new InstagramField(),
-                'housesmagazine',
-                'https://www.instagram.com/housesmagazine/',
-            ],
-            'a handle with an @'         => [new XField(), ' @HousesMag ', 'https://x.com/HousesMag'],
-            'an address in another form' => [new XField(), 'twitter.com/HousesMag', 'https://x.com/HousesMag'],
-            'a mastodon account'         => [new MastodonField(), '@houses@aus.social', 'https://aus.social/@houses'],
-            'not a profile, kept'        => [
+            'a handle the core stored'   => [new InstagramField(), 'housesmagazine', 'housesmagazine'],
+            'a handle with an @'         => [new XField(), ' @HousesMag ', '@HousesMag'],
+            'an address in another form' => [new XField(), 'twitter.com/HousesMag', 'twitter.com/HousesMag'],
+            'a mastodon account'         => [new MastodonField(), '@houses@aus.social', '@houses@aus.social'],
+            'not a profile'              => [
                 new FacebookField(),
                 ' https://www.instagram.com/x/ ',
                 'https://www.instagram.com/x/',
@@ -125,7 +125,7 @@ final class ProfileFieldTest extends TestCase
 
     #[Test]
     #[DataProvider('normalisedProvider')]
-    public function storesTheProfilesCanonicalAddress(AbstractProfileField $field, mixed $value, mixed $stored): void
+    public function storesTheValueAsTheEditorGaveIt(AbstractProfileField $field, mixed $value, mixed $stored): void
     {
         static::assertSame($stored, $field->normalise($value));
     }

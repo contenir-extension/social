@@ -6,6 +6,7 @@ namespace Contenir\Extension\Social;
 
 use Contenir\Extension\Api\ExtensionInterface;
 use Contenir\Extension\Api\Registry;
+use Contenir\Extension\Social\Field\BehanceField;
 use Contenir\Extension\Social\Field\BlueskyField;
 use Contenir\Extension\Social\Field\FacebookField;
 use Contenir\Extension\Social\Field\InstagramField;
@@ -14,13 +15,15 @@ use Contenir\Extension\Social\Field\MastodonField;
 use Contenir\Extension\Social\Field\PinterestField;
 use Contenir\Extension\Social\Field\ThreadsField;
 use Contenir\Extension\Social\Field\TikTokField;
+use Contenir\Extension\Social\Field\VimeoField;
 use Contenir\Extension\Social\Field\XField;
 use Contenir\Extension\Social\Field\YouTubeField;
 use Override;
 
 /**
  * The Social add-on: Social Media Links, with a field type for each network
- * that checks a profile and stores its canonical address, and Share Buttons.
+ * that checks a profile, whether given as an address or a handle, and Share
+ * Buttons.
  * Sites write both with a site adapter, such as contenir/social-laminas-mvc's
  * socialProfiles() and share().
  *
@@ -42,6 +45,8 @@ final class SocialExtension implements ExtensionInterface
         ThreadsField::NAME   => ThreadsField::class,
         BlueskyField::NAME   => BlueskyField::class,
         MastodonField::NAME  => MastodonField::class,
+        VimeoField::NAME     => VimeoField::class,
+        BehanceField::NAME   => BehanceField::class,
     ];
 
     #[Override]

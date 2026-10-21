@@ -97,6 +97,20 @@ final class ProfilesSectionTest extends TestCase
                     . ' @yourname@mastodon.social.',
                 'https://mastodon.social/@yourname',
             ],
+            'vimeo'     => [
+                'vimeo',
+                'Vimeo',
+                'social.social_vimeo',
+                'The profile\'s address, such as https://vimeo.com/yourname, or @yourname.',
+                'https://vimeo.com/yourname',
+            ],
+            'behance'   => [
+                'behance',
+                'Behance',
+                'social.social_behance',
+                'The profile\'s address, such as https://www.behance.net/yourname, or @yourname.',
+                'https://www.behance.net/yourname',
+            ],
         ];
     }
 
@@ -139,6 +153,8 @@ final class ProfilesSectionTest extends TestCase
                 'threads',
                 'bluesky',
                 'mastodon',
+                'vimeo',
+                'behance',
             ],
             array_map(
                 static fn(Field $field): string => $field->name,

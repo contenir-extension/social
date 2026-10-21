@@ -15,12 +15,12 @@ use function is_string;
 use function trim;
 
 /**
- * A text field holding a site's profile on one network. What an editor
- * gives, an address in any form or just the account, is stored as the
- * profile's canonical address; anything that isn't a profile on the network
- * is refused with a message saying why. A handle stored by the CMS's Social
- * Media Links plugin shows in the field as it is, and becomes an address
- * when the section is next saved.
+ * A text field holding a site's profile on one network: its address in any
+ * form the network serves it in, or just the account (@yourname). The value
+ * is stored as the editor gave it, so templates that build a link from a
+ * stored handle keep working; contenir/social builds the full address when
+ * a page is written. Anything that isn't a profile on the network is refused
+ * with a message saying why.
  *
  * @api
  */
@@ -43,8 +43,8 @@ abstract class AbstractProfileField implements FieldTypeInterface
     }
 
     /**
-     * Text rather than an address field, so a handle saved before shows,
-     * and saves, without the browser refusing it.
+     * Text rather than an address field, so a handle shows, and saves,
+     * without the browser refusing it.
      */
     #[Override]
     public function control(): FieldType
@@ -52,12 +52,13 @@ abstract class AbstractProfileField implements FieldTypeInterface
         return FieldType::Text;
     }
 
+    /**
+     * The value as the editor gave it, without surrounding spaces.
+     */
     #[Override]
     public function normalise(mixed $value): mixed
     {
-        $text = self::text($value);
-
-        return ProfileUrl::tryParse($this->network(), $text)->url ?? $text;
+        return self::text($value);
     }
 
     #[Override]

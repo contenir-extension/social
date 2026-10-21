@@ -6,17 +6,17 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased] - 2026-10-21
 
-### Changed
-
-- Requires contenir/social from its main branch (`0.1.x-dev`), now that the library is merged, until it is tagged
-  and `^0.1` can come from Packagist.
-
 ### Added
 
 - Social Media Links (`social`): a profile for each of Facebook, Instagram, LinkedIn, X, YouTube, TikTok, Pinterest,
-  Threads, Bluesky and Mastodon, under the keys the CMS's Social Media Links plugin used (`social.social_*`).
-- A field type for each network (`social:facebook` … `social:mastodon`), which stores the profile's canonical address
-  and refuses anything that isn't a profile on its network. Handles saved by the plugin become addresses on the next
-  save.
+  Threads, Bluesky, Mastodon, Vimeo and Behance, under the keys the CMS's Social Media Links plugin used
+  (`social.social_*`).
+- A field type for each network (`social:facebook` … `social:behance`), which accepts the profile's address or just the
+  account, stores it as the editor gave it, and refuses anything that isn't a profile on its network. Values the plugin
+  stored are never rewritten, so templates that build links from them keep working.
 - Share Buttons (`social-share`): which buttons, in what order, names beside icons, and UTM tags
   (`extensions.social.*`).
+
+### Changed
+
+- Requires contenir/social `^0.1`, from its repository until it is listed on Packagist.
