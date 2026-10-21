@@ -55,15 +55,11 @@ final class ProfileFieldTest extends TestCase
     public static function normalisedProvider(): array
     {
         return [
-            'a handle the core stored'   => [
-                new InstagramField(),
-                'housesmagazine',
-                'https://www.instagram.com/housesmagazine/',
-            ],
-            'a handle with an @'         => [new XField(), ' @HousesMag ', 'https://x.com/HousesMag'],
-            'an address in another form' => [new XField(), 'twitter.com/HousesMag', 'https://x.com/HousesMag'],
-            'a mastodon account'         => [new MastodonField(), '@houses@aus.social', 'https://aus.social/@houses'],
-            'not a profile, kept'        => [
+            'a handle the core stored'   => [new InstagramField(), 'housesmagazine', 'housesmagazine'],
+            'a handle with an @'         => [new XField(), ' @HousesMag ', '@HousesMag'],
+            'an address in another form' => [new XField(), 'twitter.com/HousesMag', 'twitter.com/HousesMag'],
+            'a mastodon account'         => [new MastodonField(), '@houses@aus.social', '@houses@aus.social'],
+            'not a profile'              => [
                 new FacebookField(),
                 ' https://www.instagram.com/x/ ',
                 'https://www.instagram.com/x/',
@@ -129,7 +125,7 @@ final class ProfileFieldTest extends TestCase
 
     #[Test]
     #[DataProvider('normalisedProvider')]
-    public function storesTheProfilesCanonicalAddress(AbstractProfileField $field, mixed $value, mixed $stored): void
+    public function storesTheValueAsTheEditorGaveIt(AbstractProfileField $field, mixed $value, mixed $stored): void
     {
         static::assertSame($stored, $field->normalise($value));
     }

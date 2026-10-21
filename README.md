@@ -32,10 +32,13 @@ The first five keep the plugin's keys, and the new networks join them under `soc
 finds them in one place: sites, and the SEO add-on for schema.org's `sameAs`. Neither add-on depends on the other.
 
 Each field type accepts the profile's address in any form the network serves it in, or just the account
-(`@yourname`, `yourname.bsky.social`, `@yourname@server`; LinkedIn needs the address), and stores the canonical https
-address. Anything else is refused with a message saying why ("That address is on www.instagram.com, not Facebook…").
-The plugin stored Instagram, X and Pinterest as usernames; such a value shows in its field as it is, and becomes an
-address when the section is next saved (SOC-2). Sites read both forms in the meantime.
+(`@yourname`, `yourname.bsky.social`, `@yourname@server`; LinkedIn needs the address), and stores it as the editor gave
+it. Anything else is refused with a message saying why ("That address is on www.instagram.com, not Facebook…").
+
+Stored values are never rewritten. The plugin stored Instagram, X and Pinterest as usernames, and templates that build
+a link from a stored username (`https://instagram.com/<username>`) keep working. contenir/social builds the full
+address from either form when a page is written: `socialProfiles()` for the links, and the X account for
+`twitter:site`. Sites move to the helper when it suits them (Simon's choice, replacing SOC-2's convert-on-save).
 
 **Share Buttons**, also under Social:
 
@@ -86,8 +89,10 @@ What this add-on found that the Tracking add-on's guide doesn't yet say:
 - **Normalise, then validate.** The CMS runs a field type's `normalise()` before `validate()`. A field type that tidies
   values should return what it was given when it can't tidy it, so `validate()` sees the editor's value and can say
   what is wrong with it.
-- **A text control for values saved before.** The profile fields are text, not URL, controls. A handle saved by the
-  old plugin shows as it is, and the browser doesn't refuse to submit it, so the next save can turn it into an address.
+- **A text control for values that aren't addresses.** The profile fields are text, not URL, controls, so a handle
+  shows as it is and the browser doesn't refuse to submit it.
+- **Keep what editors type.** Rewriting a stored value on save would break any template that reads it as it was; a
+  field type that accepts several forms should store the one given and leave the library to read them all.
 - **Repeating rows have no default.** A multilink field can't declare default rows, so an empty list means the
   library's default buttons; a site that wants none leaves `share()` out of its templates.
 - **Scripts only where they're needed.** The script behind "Copy link" and "Share…" is written by the site adapter,

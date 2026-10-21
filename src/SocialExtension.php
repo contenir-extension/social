@@ -22,7 +22,8 @@ use Override;
 
 /**
  * The Social add-on: Social Media Links, with a field type for each network
- * that checks a profile and stores its canonical address, and Share Buttons.
+ * that checks a profile, whether given as an address or a handle, and Share
+ * Buttons.
  * Sites write both with a site adapter, such as contenir/social-laminas-mvc's
  * socialProfiles() and share().
  *
