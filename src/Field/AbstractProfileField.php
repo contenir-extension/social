@@ -18,7 +18,7 @@ use function trim;
  * A text field holding a site's profile on one network: its address in any
  * form the network serves it in, or just the account (@yourname). The value
  * is stored as the editor gave it, so templates that build a link from a
- * stored handle keep working; contenir/social builds the full address when
+ * stored handle keep working; contenir/contenir-social builds the full address when
  * a page is written. Anything that isn't a profile on the network is refused
  * with a message saying why.
  *
