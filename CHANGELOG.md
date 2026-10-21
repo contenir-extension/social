@@ -4,7 +4,16 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased] - 2026-10-21
+## [0.1.1] - 2026-10-21
+
+### Changed
+
+- Accepts contenir/contenir-extension-api 0.7 as well as 0.6, so the CMS can host 0.7. 0.7's changes are
+  additions for add-ons, and only hosts must implement the new methods.
+- Requires the API by its current name, contenir/contenir-extension-api, where it was contenir/extension-api.
+- Requires the library under its new name, `contenir/contenir-social` `^0.1`, where it was `contenir/social`.
+
+## [0.1.0] - 2026-10-21
 
 ### Added
 
@@ -19,6 +28,4 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- Requires the library under its new name, `contenir/contenir-social` `^0.1` (it was `contenir/social`), from its
-  repository until it is listed on Packagist.
-- Accepts contenir/extension-api 0.6 as well as 0.5, as the CMS now hosts 0.6.
+- Requires contenir/social `^0.1`, from its repository until it is listed on Packagist.
