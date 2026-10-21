@@ -63,7 +63,7 @@ addresses.
 ## Requirements
 
 - PHP 8.3, 8.4 or 8.5
-- A CMS that hosts contenir/extension-api 0.5
+- A CMS that hosts contenir/extension-api 0.5 or 0.6
 
 ## Installing
 

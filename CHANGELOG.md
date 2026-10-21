@@ -21,3 +21,4 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 - Requires the library under its new name, `contenir/contenir-social` `^0.1` (it was `contenir/social`), from its
   repository until it is listed on Packagist.
+- Accepts contenir/extension-api 0.6 as well as 0.5, as the CMS now hosts 0.6.
